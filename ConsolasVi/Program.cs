@@ -20,8 +20,6 @@ namespace ConsolasVi
         private static LowLevelKeyboardProc _proc = HookCallback;
         private static IntPtr _hookID = IntPtr.Zero;
 
-        private int decimalCounter = 0;
-
         static void Main(string[] args)
         {
             Console.BackgroundColor = ConsoleColor.Yellow;
@@ -29,7 +27,7 @@ namespace ConsolasVi
             Console.Clear();
             Console.WriteLine("***********************************************");
             Console.WriteLine("***********************************************");
-            Console.WriteLine("\t   Welcome || ConsolasVi 0.1");
+            Console.WriteLine("\t   Welcome || ConsolasVi");
             Console.WriteLine("***********************************************");
             Console.WriteLine("***********************************************");
 
@@ -63,7 +61,7 @@ namespace ConsolasVi
 
 
 
-
+#region DLL IMPORTS 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(int idHook,
         LowLevelKeyboardProc lpfn, IntPtr hMod, uint dwThreadId);
@@ -78,4 +76,6 @@ namespace ConsolasVi
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr GetModuleHandle(string lpModuleName);
     }
+
+    #endregion
 }
